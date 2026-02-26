@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TOMMY | Gaming Glass Panel (ISP Boost)</title>
+<style>
+:root{
+  --bg1:#05040a;--glass:rgba(255,255,255,0.06);--glass-border:rgba(255,255,255,0.12);
+  --muted:#b9b9c6;--neon-pink:#ff2aa5;--neon-purple:#7c3aed;--neon-cyan:#00d4ff;
+  --accent-grad:linear-gradient(90deg,var(--neon-pink),var(--neon-purple),var(--neon-cyan));
+  --radius:18px;--shadow:0 40px 100px rgba(10,6,30,0.7);
+  font-family:"Segoe UI",Roboto,system-ui,-apple-system,Arial;
+}
+html,body{height:100%;margin:0;background:var(--bg1);color:#fff;}
+.wrap{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+.shell{width:100%;max-width:900px;border-radius:22px;padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));border:1px solid var(--glass-border);box-shadow:var(--shadow)}
+.header{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:68px;height:68px;border-radius:16px;background:conic-gradient(from 220deg,var(--neon-purple),var(--neon-pink),var(--neon-cyan));display:flex;align-items:center;justify-content:center;color:#04040a;font-weight:900;font-size:22px;}
+.tabBadge{padding:10px 14px;border-radius:14px;border:1px solid var(--glass-border);background:rgba(255,255,255,0.03);font-weight:800}
+.tabBadge.purple{background:linear-gradient(90deg,#2a1747,#0e0b18);border:1px solid #5a2bd6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{border-radius:var(--radius);padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));border:1px solid var(--glass-border);backdrop-filter: blur(8px);cursor:pointer;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card h3{margin:10px 0 6px 0}
+.icon{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;background:var(--accent-grad);color:#05040a;}
+.page{display:none}
+.page.active{display:block}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.back{cursor:pointer;font-weight:700;border-radius:12px;border:1px solid var(--glass-border);padding:8px 12px;background:rgba(255,255,255,0.04)}
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+input[type="text"], select{width:100%;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:14px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.btn{padding:14px 18px;border-radius:14px;border:none;background:var(--accent-grad);color:#03030a;font-weight:900;cursor:pointer;animation:shift 6s linear infinite;background-size:300% 100%}
+@keyframes shift{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+.footer{margin-top:18px;border-radius:16px;border:1px solid var(--glass-border);background:rgba(255,255,255,0.03);padding:12px;text-align:center}
+.footer strong{display:block;margin-bottom:4px}
+.loginWrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:9999;backdrop-filter: blur(6px)}
+.loginCard{width:92%;max-width:420px;border-radius:22px;padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));border:1px solid var(--glass-border);box-shadow:var(--shadow);text-align:center}
+.pwdRow{display:flex;gap:10px;margin-top:10px}
+.pwdRow input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:#fff}
+.pwdRow button{padding:12px 16px;border-radius:12px;background:var(--accent-grad);border:none;color:#05040a;font-weight:900}
+.panel{border-radius:var(--radius);padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);backdrop-filter: blur(6px)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="shell">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">MZ</div>
+        <h1>TOMMY</h1>
+      </div>
+      <div class="tabBadge purple">TOMMY</div>
+      <div class="tabBadge">WireGuard • DNS • ISP Boost</div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page active">
+      <div class="panel">
+        <div class="grid">
+          <div class="card" id="go-wg">
+            <div class="icon">WG</div><h3>WireGuard</h3>
+          </div>
+          <div class="card" id="go-dns">
+            <div class="icon">DNS</div><h3>DNS</h3>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><strong>My Channel</strong>@TOMMYxPUBGm</div>
+    </div>
+
+    <!-- WIREGUARD PAGE -->
+    <div id="page-wg" class="page">
+      <div class="topbar"><div>Create WireGuard (ISP-Optimized)</div><div class="back" data-back>Back</div></div>
+      <div class="panel">
+        <label>WireGuard file name (.conf)</label>
+        <input id="wgName" type="text" placeholder="example.conf" />
+        <select id="ispSelect">
+          <option value="irancell">Irancell</option>
+          <option value="mci">Hamrah Aval (MCI)</option>
+          <option value="deutsche">Germany ISP</option>
+          <option value="us-comcast">US Comcast</option>
+        </select>
+        <button class="btn" id="btnWg">Download Config</button>
+      </div>
+      <div class="footer"><strong>My Channel</strong>@TOMMYxPUBGm</div>
+    </div>
+
+    <!-- DNS PAGE -->
+    <div id="page-dns" class="page">
+      <div class="topbar"><div>DNS Boost</div><div class="back" data-back>Back</div></div>
+      <div class="panel">
+        <label>server</label>
+        <select id="dnsCountry">
+          <option value="de">Germany</option><option value="fi">Finland</option><option value="fr">France</option><option value="nl">Netherlands</option><option value="us">United States</option><option value="ir">Iran</option>
+        </select>
+        <button class="btn" id="btnDns">Build DNS</button>
+        <div id="dnsResult"></div>
+      </div>
+      <div class="footer"><strong>My Channel</strong>@TOMMYxPUBGm</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="loginWrap" id="login">
+  <div class="loginCard">
+    <h2>login</h2>
+    <div class="pwdRow">
+      <input id="password" type="password" placeholder="••••••" />
+      <button id="loginBtn">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PASS='MARKO';
+document.getElementById('loginBtn').addEventListener('click',()=>{
+  if(document.getElementById('password').value===PASS){document.getElementById('login').style.display='none';}
+  else alert('Wrong password!');
+});
+
+// Pages navigation
+const pages={home:'page-home',wg:'page-wg',dns:'page-dns'};
+function show(p){Object.values(pages).forEach(id=>document.getElementById(id).classList.remove('active'));document.getElementById(pages[p]).classList.add('active');}
+document.getElementById('go-wg').onclick=()=>show('wg');
+document.getElementById('go-dns').onclick=()=>show('dns');
+document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>show('home'));
+
+function rand(min,max){return Math.floor(Math.random()*(max-min))+min;}
+function randHex4(){return Math.floor(Math.random()*0x10000).toString(16).padStart(4,'0');}
+function randBytes(n){const a=new Uint8Array(n);crypto.getRandomValues(a);return a;}
+function toBase64(bytes){return btoa(String.fromCharCode(...bytes));}
+
+// ISP Ranges
+const ispRanges={
+  'irancell':['5.127.0.','37.255.0.','89.42.0.','188.118.64.'],
+  'mci':['94.182.0.','79.132.0.','5.113.0.','185.100.64.'],
+  'deutsche':['80.156.0.','87.168.0.','188.99.0.'],
+  'us-comcast':['73.0.0.','24.196.0.','67.165.0.']
+};
+function ispIPv4(prefix){return `${prefix}${Math.floor(Math.random()*255)}`;}
+function generateIPv6(){return `2a14:4b40::${randHex4()}:${randHex4()}:${randHex4()}:${randHex4()}`;}
+
+// WireGuard Creator
+function buildWireGuardConfig(name,isp){
+  const priv=toBase64(randBytes(32)),pub=toBase64(randBytes(32)),psk=toBase64(randBytes(32));
+  const prefix=ispRanges[isp][Math.floor(Math.random()*ispRanges[isp].length)];
+  const ipv4=ispIPv4(prefix);
+  const ipv6=generateIPv6();
+  const strongDNS=['8.8.8.8','1.1.1.1','10.202.10.10','78.157.42.101','185.51.200.2'];
+  const dns=strongDNS.join(', ');
+  const allowed4=Array.from({length:60},()=>ispIPv4(prefix)).join(', ');
+  const allowed6=Array.from({length:30},generateIPv6).join(', ');
+  const endpoints={
+    'ir':'185.51.200.2:51820','de':'80.156.220.10:51820','fi':'95.217.12.9:51820',
+    'fr':'51.83.65.155:51820','nl':'95.179.148.40:51820','us':'38.242.203.21:51820'
+  };
+  const region = isp==='irancell'||isp==='mci'?'ir':'de';
+  return `# Name: ${name}
+# ISP: ${isp}
+# Optimized WireGuard Config by TOMMY
+
+[Interface]
+PrivateKey = ${priv}
+Address = ${ipv4}/24, ${ipv6}/128
+DNS = ${dns}
+MTU = 1380
+
+[Peer]
+PublicKey = ${pub}
+PresharedKey = ${psk}
+AllowedIPs = ${allowed4}, ${allowed6}
+Endpoint = ${endpoints[region]}
+PersistentKeepalive = 30`;
+}
+
+// WireGuard Button
+document.getElementById('btnWg').onclick=()=>{
+  let fname=document.getElementById('wgName').value.trim();
+  const isp=document.getElementById('ispSelect').value;
+  if(!fname)return alert('اسم فایل را وارد کنید');
+  if(!/\.conf$/i.test(fname))fname+='.conf';
+  const cfg=buildWireGuardConfig(fname.replace(/\.conf$/i,''), isp);
+  const blob=new Blob([cfg],{type:'application/x-wireguard-config'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;a.click();
+};
+
+// DNS Generator
+document.getElementById('btnDns').onclick=()=>{
+  const c=document.getElementById('dnsCountry').value;
+  const ipv4=`${rand(1,255)}.${rand(0,255)}.${rand(0,255)}.${rand(1,254)}`;
+  const ipv6a=`2a00:${randHex4()}:${randHex4()}::${randHex4()}`;
+  const ipv6b=`2a01:${randHex4()}:${randHex4()}::${randHex4()}`;
+  const bestDNS=['1.1.1.1','8.8.8.8','9.9.9.9','185.51.200.2','78.157.42.101'];
+  document.getElementById('dnsResult').innerText=`IPv4: ${ipv4}
+IPv6-1: ${ipv6a}
+IPv6-2: ${ipv6b}
+Recommended DNS: ${bestDNS.join(', ')}`;
+};
+</script>
+</body>
+</html>
